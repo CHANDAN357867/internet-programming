@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Grocery Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 50px auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .container input[type="text"],
+        .container input[type="password"],
+        .container input[type="email"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #4c049ea0;
+        }
+        .hide {
+            display: none;
+        }
+        .product-container {
+            margin: 20px auto;
+            width: 80%;
+        }
+        .product {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .product h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        .product p {
+            margin: 5px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="registration-page">
+        <h2>Registration</h2>
+        <form action="login.html" method="POST" id="registration-form">
+            <label for="fullname">Full Name:</label><br>
+            <input type="text" id="fullname" name="fullname" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="phone">Phone Number:</label><br>
+            <input type="text" id="phone" name="phone" required><br><br>
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" name="address" required><br><br>
+            <label for="country">Country:</label><br>
+            <input type="text" id="country" name="country" required><br><br>
+            <label for="state">State:</label><br>
+            <input type="text" id="state" name="state" required><br><br>
+            <label for="pincode">Pin Code:</label><br>
+            <input type="text" id="pincode" name="pincode" required><br><br>
+            <label for="qualification">Qualification:</label><br>
+            <input type="text" id="qualification" name="qualification" required><br><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <div class="container hide" id="login-page">
+        <h2>Login</h2>
+        <form action="vegetables.html" method="POST" id="login-form">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <div class="product-container hide" id="vegetables-page">
+        <div class="product">
+            <h2>Vegetables</h2>
+            <p>Carrot - $1 per kg</p>
+            <p>Tomato - $1.50 per kg</p>
+            <p>Spinach - $2 per kg</p>
+            <p>Potato - $2 per kg</p>
+            <p>Cabbage - $1.80 per kg</p>
+            <!-- Add more vegetables as needed -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var fullname = document.getElementById('fullname').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var address = document.getElementById('address').value;
+            var country = document.getElementById('country').value;
+            var state = document.getElementById('state').value;
+            var pincode = document.getElementById('pincode').value;
+            var qualification = document.getElementById('qualification').value;
+
+            // You can add further validation if required
+
+            // For now, assuming registration is successful, show the login page
+            document.getElementById('registration-page').style.display = 'none';
+            document.getElementById('login-page').style.display = 'block';
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            // You can add authentication logic here
+            if (username === "chandn357" && password === "1234") {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('vegetables-page').style.display = 'block';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
